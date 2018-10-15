@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: http://satishjhanwer.github.io/sitemap.xml
