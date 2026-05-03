@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 36">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <text
+    font-family="Inter, system-ui, -apple-system, sans-serif"
+    font-size="30"
+    font-weight="800"
+    letter-spacing="-1"
+    fill="url(#g)"
+    x="2"
+    y="28"
+  >SJ_</text>
+</svg>

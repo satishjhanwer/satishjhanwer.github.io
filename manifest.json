@@ -1,0 +1,22 @@
+{
+  "name": "Satish Jhanwer - Frontend Architect",
+  "short_name": "Satish Jhanwer",
+  "description": "Senior Frontend Architect with 15+ years. M.Tech AI/ML, IIT Jodhpur. Building intelligent interfaces at the intersection of systems-level frontend and applied ML.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#06060f",
+  "theme_color": "#a855f7",
+  "icons": [
+    {
+      "src": "/logo192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
