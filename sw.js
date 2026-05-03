@@ -1,5 +1,5 @@
 // Update this version string on each major deploy to invalidate stale caches
-const CACHE = "satishjhanwer-v2";
+const CACHE = "satishjhanwer-v3";
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.add("/")));
@@ -27,7 +27,8 @@ self.addEventListener("fetch", (e) => {
     e.respondWith(
       fetch(e.request)
         .then((res) => {
-          caches.open(CACHE).then((c) => c.put(e.request, res.clone()));
+          const resClone = res.clone();
+          caches.open(CACHE).then((c) => c.put(e.request, resClone));
           return res;
         })
         .catch(() => caches.match("/")),
@@ -41,7 +42,8 @@ self.addEventListener("fetch", (e) => {
         (cached) =>
           cached ||
           fetch(e.request).then((res) => {
-            caches.open(CACHE).then((c) => c.put(e.request, res.clone()));
+            const resClone = res.clone();
+            caches.open(CACHE).then((c) => c.put(e.request, resClone));
             return res;
           }),
       ),
@@ -52,7 +54,8 @@ self.addEventListener("fetch", (e) => {
   e.respondWith(
     fetch(e.request)
       .then((res) => {
-        caches.open(CACHE).then((c) => c.put(e.request, res.clone()));
+        const resClone = res.clone();
+        caches.open(CACHE).then((c) => c.put(e.request, resClone));
         return res;
       })
       .catch(() => caches.match(e.request)),
