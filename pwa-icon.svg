@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="#06060f"/>
+  <text
+    font-family="Inter, system-ui, -apple-system, sans-serif"
+    font-size="192"
+    font-weight="800"
+    letter-spacing="-8"
+    fill="url(#g)"
+    text-anchor="middle"
+    x="256"
+    y="310"
+  >SJ_</text>
+</svg>
