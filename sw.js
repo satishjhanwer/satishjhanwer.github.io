@@ -1,5 +1,4 @@
-// Update this version string on each major deploy to invalidate stale caches
-const CACHE = "satishjhanwer-v4";
+const CACHE = "satishjhanwer-v1779344188164";
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.add("/")));
