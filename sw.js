@@ -1,4 +1,4 @@
-const CACHE = "satishjhanwer-v1779344188164";
+const CACHE = "satishjhanwer-v1781245363149";
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.add("/")));
