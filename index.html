@@ -1,83 +1,63 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <script>
-      (function () {
-        function applyTheme() {
-          var forced = new URLSearchParams(location.search).get('theme');
-          var h = new Date().getHours();
-          var t = forced !== null ? forced : h < 8 ? 'sakura' : h < 16 ? null : 'copper';
-          if (t) document.documentElement.setAttribute('data-theme', t);
-          else document.documentElement.removeAttribute('data-theme');
-        }
-        applyTheme();
-        function scheduleNext() {
-          var h = new Date().getHours();
-          var next = h < 8 ? 8 : h < 16 ? 16 : 24;
-          var now = new Date();
-          var ms =
-            (next * 3600 -
-              (now.getHours() * 3600 +
-                now.getMinutes() * 60 +
-                now.getSeconds())) *
-              1000 +
-            200;
-          setTimeout(function () {
-            applyTheme();
-            scheduleNext();
-          }, ms);
-        }
-        scheduleNext();
-      })();
-    </script>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#a855f7" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Satish Jhanwer - Frontend Architect & M.Tech AI/ML</title>
-    <meta
-      name="google-site-verification"
-      content="kJPhftizihc4HKT_Q8Z5l2xTpOe8IUE4FWHsoW3xo4E"
-    />
-    <meta
-      name="description"
-      content="Senior Frontend Architect with 15+ years. M.Tech AI/ML, IIT Jodhpur. Building intelligent interfaces at the intersection of systems-level frontend and applied ML."
-    />
-    <meta
-      property="og:title"
-      content="Satish Jhanwer - Frontend Architect & M.Tech AI/ML"
-    />
-    <meta
-      property="og:description"
-      content="Senior Frontend Architect with 15+ years. M.Tech AI/ML, IIT Jodhpur. Building intelligent interfaces at the intersection of systems-level frontend and applied ML."
-    />
-    <meta
-      property="og:image"
-      content="https://satishjhanwer.dev/og-image.png"
-    />
-    <meta property="og:url" content="https://satishjhanwer.dev/" />
-    <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Content Security Policy -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https://avatars.githubusercontent.com https://media.licdn.com; connect-src 'self'; font-src 'self' data: https://cdn.jsdelivr.net;"
-    />
-    <!-- Async Devicon Load -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-      media="print"
-      onload="this.media = 'all'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-      />
-    </noscript>
-    <script type="application/ld+json">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    (function () {
+      function applyTheme() {
+        var forced = new URLSearchParams(location.search).get('theme');
+        var h = new Date().getHours();
+        var t = forced !== null ? forced : h < 8 ? 'sakura' : h < 16 ? null : 'night';
+        if (t) document.documentElement.setAttribute('data-theme', t);
+        else document.documentElement.removeAttribute('data-theme');
+      }
+      applyTheme();
+      function scheduleNext() {
+        var h = new Date().getHours();
+        var next = h < 8 ? 8 : h < 16 ? 16 : 24;
+        var now = new Date();
+        var ms =
+          (next * 3600 -
+            (now.getHours() * 3600 +
+              now.getMinutes() * 60 +
+              now.getSeconds())) *
+          1000 +
+          200;
+        setTimeout(function () {
+          applyTheme();
+          scheduleNext();
+        }, ms);
+      }
+      scheduleNext();
+    })();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#e8843a" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Satish Jhanwer - Frontend Architect & M.Tech AI/ML</title>
+  <meta name="google-site-verification" content="kJPhftizihc4HKT_Q8Z5l2xTpOe8IUE4FWHsoW3xo4E" />
+  <meta name="description"
+    content="Senior Frontend Architect with 16+ years. M.Tech AI/ML, IIT Jodhpur. Building intelligent interfaces at the intersection of systems-level frontend and applied ML." />
+  <meta property="og:title" content="Satish Jhanwer - Frontend Architect & M.Tech AI/ML" />
+  <meta property="og:description"
+    content="Senior Frontend Architect with 16+ years. M.Tech AI/ML, IIT Jodhpur. Building intelligent interfaces at the intersection of systems-level frontend and applied ML." />
+  <meta property="og:image" content="https://satishjhanwer.dev/og-image.png" />
+  <meta property="og:url" content="https://satishjhanwer.dev/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https://avatars.githubusercontent.com https://media.licdn.com; connect-src 'self'; font-src 'self' data: https://cdn.jsdelivr.net;" />
+  <!-- Async Devicon Load -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.17.0/devicon.min.css" media="print"
+    onload="this.media = 'all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.17.0/devicon.min.css" />
+  </noscript>
+  <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
@@ -90,14 +70,15 @@
         ]
       }
     </script>
-    <script type="module" crossorigin src="/assets/index-CPqBkF36.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-BYbx6iT9.js">
-    <link rel="modulepreload" crossorigin href="/assets/motion-CdyPFv1s.js">
-    <link rel="modulepreload" crossorigin href="/assets/react-vendor-DlAeoD_w.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-Mj43vj6B.css">
-  </head>
+  <script type="module" crossorigin src="/assets/index-ByqYvVFW.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-CNC7AqOf.js">
+  <link rel="modulepreload" crossorigin href="/assets/motion-PpIOSipa.js">
+  <link rel="modulepreload" crossorigin href="/assets/react-vendor-BAW-WsY2.js">
+  <link rel="stylesheet" crossorigin href="/assets/index-CEgt60_v.css">
+</head>
 
-  <body>
-    <div id="root"></div>
-  </body>
+<body>
+  <div id="root"></div>
+</body>
+
 </html>
