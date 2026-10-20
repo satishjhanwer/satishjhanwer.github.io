@@ -1,0 +1,1 @@
+var e=`satish.jhanwer@gmail.com`,t={muted:`let's build`,grad:`something real.`},n=`Open to the right conversations - whether that's a product challenge, a technical deep-dive, or an AI experiment worth exploring together.`,r=[`consulting`,`architecture reviews`,`AI / frontend collaborations`,`hard problems worth solving`];export{r as i,t as n,n as r,e as t};

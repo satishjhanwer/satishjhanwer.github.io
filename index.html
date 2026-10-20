@@ -1,56 +1,104 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (function () {
+        function applyTheme() {
+          var forced = new URLSearchParams(location.search).get("theme");
+          var h = new Date().getHours();
+          var t =
+            forced !== null
+              ? forced
+              : h < 8
+                ? "sakura"
+                : h < 16
+                  ? null
+                  : "night";
+          if (t) document.documentElement.setAttribute("data-theme", t);
+          else document.documentElement.removeAttribute("data-theme");
+        }
+        applyTheme();
+        function scheduleNext() {
+          var h = new Date().getHours();
+          var next = h < 8 ? 8 : h < 16 ? 16 : 24;
+          var now = new Date();
+          var ms =
+            (next * 3600 -
+              (now.getHours() * 3600 +
+                now.getMinutes() * 60 +
+                now.getSeconds())) *
+              1000 +
+            200;
+          setTimeout(function () {
+            applyTheme();
+            scheduleNext();
+          }, ms);
+        }
+        scheduleNext();
+      })();
+    </script>
+    <script>
+      // Accessibility preferences (src/utils/a11yPrefs.ts) applied before first
+      // paint so there's no flash of the default look. Keep in sync with
+      // applyPrefs() there.
+      (function () {
+        try {
+          var p = JSON.parse(localStorage.getItem("a11y-prefs") || "{}");
+          var r = document.documentElement;
+          if (p.textSize === "115" || p.textSize === "130")
+            r.setAttribute("data-text-size", p.textSize);
+          if (p.highContrast) r.setAttribute("data-contrast", "high");
+          if (p.readableFont) r.setAttribute("data-font", "readable");
+          if (p.reduceMotion) r.setAttribute("data-motion", "reduce");
+          if (p.systemCursor) r.setAttribute("data-cursor", "system");
+          if (p.underlineLinks) r.setAttribute("data-links", "underline");
+          if (
+            [
+              "protanopia",
+              "deuteranopia",
+              "tritanopia",
+              "achromatopsia",
+            ].indexOf(p.colorVision) !== -1
+          )
+            r.setAttribute("data-vision", p.colorVision);
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#e8843a" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Satish Jhanwer - Frontend Architect & M.Tech AI/ML</title>
+    <meta
+      name="google-site-verification"
+      content="kJPhftizihc4HKT_Q8Z5l2xTpOe8IUE4FWHsoW3xo4E"
+    />
+    <meta
+      name="description"
+      content="Senior Frontend Architect with 16+ years. M.Tech AI/ML, IIT Jodhpur. Building intelligent interfaces at the intersection of systems-level frontend and applied ML."
+    />
+    <meta
+      property="og:title"
+      content="Satish Jhanwer - Frontend Architect & M.Tech AI/ML"
+    />
+    <meta
+      property="og:description"
+      content="Senior Frontend Architect with 16+ years. M.Tech AI/ML, IIT Jodhpur. Building intelligent interfaces at the intersection of systems-level frontend and applied ML."
+    />
+    <meta
+      property="og:image"
+      content="https://satishjhanwer.dev/og-image.png"
+    />
+    <meta property="og:url" content="https://satishjhanwer.dev/" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-<head>
-  <meta charset="UTF-8" />
-  <script>
-    (function () {
-      function applyTheme() {
-        var forced = new URLSearchParams(location.search).get('theme');
-        var h = new Date().getHours();
-        var t = forced !== null ? forced : h < 8 ? 'sakura' : h < 16 ? null : 'night';
-        if (t) document.documentElement.setAttribute('data-theme', t);
-        else document.documentElement.removeAttribute('data-theme');
-      }
-      applyTheme();
-      function scheduleNext() {
-        var h = new Date().getHours();
-        var next = h < 8 ? 8 : h < 16 ? 16 : 24;
-        var now = new Date();
-        var ms =
-          (next * 3600 -
-            (now.getHours() * 3600 +
-              now.getMinutes() * 60 +
-              now.getSeconds())) *
-          1000 +
-          200;
-        setTimeout(function () {
-          applyTheme();
-          scheduleNext();
-        }, ms);
-      }
-      scheduleNext();
-    })();
-  </script>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="manifest" href="/manifest.json" />
-  <meta name="theme-color" content="#e8843a" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Satish Jhanwer - Frontend Architect & M.Tech AI/ML</title>
-  <meta name="google-site-verification" content="kJPhftizihc4HKT_Q8Z5l2xTpOe8IUE4FWHsoW3xo4E" />
-  <meta name="description"
-    content="Senior Frontend Architect with 16+ years. M.Tech AI/ML, IIT Jodhpur. Building intelligent interfaces at the intersection of systems-level frontend and applied ML." />
-  <meta property="og:title" content="Satish Jhanwer - Frontend Architect & M.Tech AI/ML" />
-  <meta property="og:description"
-    content="Senior Frontend Architect with 16+ years. M.Tech AI/ML, IIT Jodhpur. Building intelligent interfaces at the intersection of systems-level frontend and applied ML." />
-  <meta property="og:image" content="https://satishjhanwer.dev/og-image.png" />
-  <meta property="og:url" content="https://satishjhanwer.dev/" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Content Security Policy -->
-  <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://avatars.githubusercontent.com https://media.licdn.com; connect-src 'self'; font-src 'self' data:;" />
-  <script type="application/ld+json">
+    <!-- Content Security Policy -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://avatars.githubusercontent.com https://media.licdn.com; connect-src 'self'; font-src 'self' data:;"
+    />
+    <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
@@ -63,15 +111,53 @@
         ]
       }
     </script>
-  <script type="module" crossorigin src="/assets/index-BFEgL2j7.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-CNC7AqOf.js">
-  <link rel="modulepreload" crossorigin href="/assets/motion-PpIOSipa.js">
-  <link rel="modulepreload" crossorigin href="/assets/react-vendor-BAW-WsY2.js">
-  <link rel="stylesheet" crossorigin href="/assets/index-CM6XjALy.css">
-</head>
+    <script type="module" crossorigin src="/assets/index-CmewtMKq.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-WkwZ5CU-.js">
+    <link rel="modulepreload" crossorigin href="/assets/motion-BcZiqqba.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-geY5YAxh.js">
+    <link rel="modulepreload" crossorigin href="/assets/data-NYRt0KpF.js">
+    <link rel="modulepreload" crossorigin href="/assets/preload-helper-BLdHbfdN.js">
+    <link rel="modulepreload" crossorigin href="/assets/a11yPrefs-DGLgeW5M.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-CJAoC5Z0.css">
+  </head>
 
-<body>
-  <div id="root"></div>
-</body>
-
+  <body>
+    <!-- Colour-vision simulation filters (Machado et al. 2009, severity 1),
+         used by :root[data-vision=…] in globals.css. -->
+    <svg
+      width="0"
+      height="0"
+      style="position: absolute"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <defs>
+        <filter id="cv-protanopia">
+          <feColorMatrix
+            type="matrix"
+            values="0.152286 1.052583 -0.204868 0 0  0.114503 0.786281 0.099216 0 0  -0.003882 -0.048116 1.051998 0 0  0 0 0 1 0"
+          />
+        </filter>
+        <filter id="cv-deuteranopia">
+          <feColorMatrix
+            type="matrix"
+            values="0.367322 0.860646 -0.227968 0 0  0.280085 0.672501 0.047413 0 0  -0.011820 0.042940 0.968881 0 0  0 0 0 1 0"
+          />
+        </filter>
+        <filter id="cv-tritanopia">
+          <feColorMatrix
+            type="matrix"
+            values="1.255528 -0.076749 -0.178779 0 0  -0.078411 0.930809 0.147602 0 0  0.004733 0.691367 0.303900 0 0  0 0 0 1 0"
+          />
+        </filter>
+        <filter id="cv-achromatopsia">
+          <feColorMatrix
+            type="matrix"
+            values="0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+    </svg>
+    <div id="root"></div>
+  </body>
 </html>

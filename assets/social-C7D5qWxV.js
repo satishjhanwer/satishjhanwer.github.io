@@ -1,0 +1,1 @@
+var e=[{label:`GitHub`,href:`https://github.com/satishjhanwer`,icon:`github-original`},{label:`LinkedIn`,href:`https://www.linkedin.com/in/satishjhanwer/`,icon:`linkedin-plain`},{label:`X`,href:`https://twitter.com/satishjhanwer`,icon:`twitter-original`},{label:`LeetCode`,href:`https://leetcode.com/u/satishjhanwer/`,icon:`leetcode-original`}];export{e as t};
