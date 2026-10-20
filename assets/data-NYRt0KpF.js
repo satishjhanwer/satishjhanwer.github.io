@@ -1,1 +1,0 @@
-var e={open:!0,compact:`available`,full:`available for work`,statuses:[`AVAILABLE FOR WORK`,`OPEN TO FULLTIME`,`FREELANCE · CONSULTING`],target:`contact`},t=e=>`from ${e}`,n=e.since?`${e.full} · ${t(e.since)}`:e.full,r=` — get in touch`;export{t as i,n,r,e as t};

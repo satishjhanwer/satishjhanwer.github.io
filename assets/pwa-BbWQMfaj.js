@@ -1,0 +1,1 @@
+var e={install:`install app`,installHint:`Add this site to your device; it works offline after one visit`,updateTitle:`A new version is available`,updateBody:`Refresh to load the latest changes.`,refresh:`refresh`,dismiss:`Dismiss update notice`};export{e as t};

@@ -1,8 +1,10 @@
 {
+  "id": "/",
   "name": "Satish Jhanwer - Frontend Architect",
   "short_name": "Satish Jhanwer",
   "description": "Senior Frontend Architect with 16+ years. M.Tech AI/ML, IIT Jodhpur. Building intelligent interfaces at the intersection of systems-level frontend and applied ML.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#06060f",
   "theme_color": "#a855f7",
@@ -22,6 +24,29 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Projects",
+      "short_name": "Projects",
+      "description": "Jump to selected projects",
+      "url": "/#projects",
+      "icons": [{ "src": "/logo192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Get in touch",
+      "url": "/#contact",
+      "icons": [{ "src": "/logo192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Resume (PDF)",
+      "short_name": "Resume",
+      "description": "Open the resume",
+      "url": "/resume.pdf",
+      "icons": [{ "src": "/logo192.png", "sizes": "192x192" }]
     }
   ]
 }
