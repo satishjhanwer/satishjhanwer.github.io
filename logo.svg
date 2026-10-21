@@ -1,17 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 36">
-  <defs>
-    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#a855f7"/>
-      <stop offset="100%" stop-color="#22d3ee"/>
-    </linearGradient>
-  </defs>
-  <text
-    font-family="Inter, system-ui, -apple-system, sans-serif"
-    font-size="30"
-    font-weight="800"
-    letter-spacing="-1"
-    fill="url(#g)"
-    x="2"
-    y="28"
-  >SJ_</text>
-</svg>
+<svg width="240" height="108" viewBox="0 0 240 108" xmlns="http://www.w3.org/2000/svg"><mask id="satori_om-id"><rect x="0" y="0" width="246" height="108" fill="#fff"/></mask><clipPath id="satori_bct-id-0"><path d="M36.4 86.9L36.4 86.9Q28.2 86.9 22.1 84.4Q16.1 82 12.7 76.9Q9.3 71.9 9.2 64.4L9.2 64.4L24.1 64.4Q24.3 67.5 25.8 69.7Q27.3 71.8 30 72.9Q32.6 74 36.2 74L36.2 74Q39.4 74 41.7 73.1Q44.1 72.2 45.3 70.7Q46.6 69.1 46.6 67L46.6 67Q46.6 65.1 45.4 63.8Q44.2 62.4 41.9 61.4Q39.6 60.4 36 59.6L36 59.6L29 58Q20.5 56.1 15.7 51.7Q10.9 47.3 10.9 39.9L10.9 39.9Q10.9 33.8 14.2 29.3Q17.5 24.7 23.2 22.2Q28.9 19.6 36.4 19.6L36.4 19.6Q44 19.6 49.5 22.2Q55.1 24.8 58.2 29.4Q61.3 34 61.4 40L61.4 40L46.5 40Q46.2 36.5 43.6 34.5Q41 32.5 36.3 32.5L36.3 32.5Q33.2 32.5 31.1 33.3Q29 34.1 28 35.6Q26.9 37 26.9 38.8L26.9 38.8Q26.9 40.9 28.1 42.3Q29.3 43.6 31.5 44.6Q33.7 45.5 36.6 46.1L36.6 46.1L42.3 47.5Q47 48.5 50.7 50.2Q54.4 51.9 57 54.4Q59.6 56.8 60.9 59.9Q62.3 63.1 62.3 67L62.3 67Q62.3 73.2 59.2 77.7Q56.1 82.1 50.3 84.5Q44.5 86.9 36.4 86.9ZM87.1 86.9L87.1 86.9Q76.3 86.9 70.3 81.5Q64.2 76 64.2 66L64.2 66L64.2 62L79.7 62L79.7 66.2Q79.7 70.4 81.7 72.5Q83.7 74.6 87.1 74.6L87.1 74.6Q90.6 74.6 92.6 72.5Q94.5 70.4 94.5 66.1L94.5 66.1L94.5 20.5L109.8 20.5L109.8 65.9Q109.8 76 103.8 81.4Q97.8 86.9 87.1 86.9ZM106.7 86L150.3 86L150.3 97.3L106.7 97.3L106.7 86Z "/></clipPath><defs><pattern id="satori_pattern_id-0_0" x="0" y="0" width="1" height="1" patternUnits="objectBoundingBox"><linearGradient id="satori_biid-0_0" x1="-0.08201994210357048" y1="0.12849790929559401" x2="1.0820199421035706" y2="0.8715020907044059" spreadMethod="pad"><stop offset="0%" stop-color="#a855f7"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient><rect x="0" y="0" width="141" height="90" fill="url(#satori_biid-0_0)"/></pattern></defs><mask id="satori_om-id-0"><rect x="6" y="9" width="141" height="90" fill="#fff"/></mask><rect x="6" y="9" width="141" height="90" fill="url(#satori_pattern_id-0_0)" clip-path="url(#satori_bct-id-0)"/></svg>

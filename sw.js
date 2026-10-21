@@ -1,4 +1,4 @@
-const CACHE = "satishjhanwer-v1792510844901";
+const CACHE = "satishjhanwer-v1792562537021";
 const OFFLINE_URL = "/offline.html";
 const MATCH = { ignoreVary: true };
 

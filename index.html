@@ -7,14 +7,7 @@
         function applyTheme() {
           var forced = new URLSearchParams(location.search).get("theme");
           var h = new Date().getHours();
-          var t =
-            forced !== null
-              ? forced
-              : h < 8
-                ? "sakura"
-                : h < 16
-                  ? null
-                  : "night";
+          var t = forced !== null ? forced : h < 8 ? "sakura" : h < 16 ? null : "night";
           if (t) document.documentElement.setAttribute("data-theme", t);
           else document.documentElement.removeAttribute("data-theme");
         }
@@ -23,13 +16,7 @@
           var h = new Date().getHours();
           var next = h < 8 ? 8 : h < 16 ? 16 : 24;
           var now = new Date();
-          var ms =
-            (next * 3600 -
-              (now.getHours() * 3600 +
-                now.getMinutes() * 60 +
-                now.getSeconds())) *
-              1000 +
-            200;
+          var ms = (next * 3600 - (now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds())) * 1000 + 200;
           setTimeout(function () {
             applyTheme();
             scheduleNext();
@@ -43,57 +30,48 @@
         try {
           var p = JSON.parse(localStorage.getItem("a11y-prefs") || "{}");
           var r = document.documentElement;
-          if (p.textSize === "115" || p.textSize === "130")
-            r.setAttribute("data-text-size", p.textSize);
+          if (p.textSize === "115" || p.textSize === "130") r.setAttribute("data-text-size", p.textSize);
           if (p.highContrast) r.setAttribute("data-contrast", "high");
           if (p.readableFont) r.setAttribute("data-font", "readable");
           if (p.reduceMotion) r.setAttribute("data-motion", "reduce");
           if (p.systemCursor) r.setAttribute("data-cursor", "system");
           if (p.underlineLinks) r.setAttribute("data-links", "underline");
-          if (
-            [
-              "protanopia",
-              "deuteranopia",
-              "tritanopia",
-              "achromatopsia",
-            ].indexOf(p.colorVision) !== -1
-          )
+          if (["protanopia", "deuteranopia", "tritanopia", "achromatopsia"].indexOf(p.colorVision) !== -1)
             r.setAttribute("data-vision", p.colorVision);
         } catch (e) {}
       })();
     </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/logo192.png" />
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#e8843a" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Satish Jhanwer - Frontend Architect & M.Tech AI/ML</title>
-    <meta
-      name="google-site-verification"
-      content="kJPhftizihc4HKT_Q8Z5l2xTpOe8IUE4FWHsoW3xo4E"
-    />
+    <meta name="google-site-verification" content="kJPhftizihc4HKT_Q8Z5l2xTpOe8IUE4FWHsoW3xo4E" />
     <meta
       name="description"
-      content="Senior Frontend Architect with 16+ years. M.Tech AI/ML, IIT Jodhpur. Building intelligent interfaces at the intersection of systems-level frontend and applied ML."
-    />
-    <meta
-      property="og:title"
-      content="Satish Jhanwer - Frontend Architect & M.Tech AI/ML"
-    />
+      content="Senior Frontend Architect with 16+ years. M.Tech AI/ML, IIT Jodhpur. Building intelligent interfaces at the intersection of systems-level frontend and applied ML." />
+    <meta property="og:title" content="Satish Jhanwer - Frontend Architect & M.Tech AI/ML" />
     <meta
       property="og:description"
-      content="Senior Frontend Architect with 16+ years. M.Tech AI/ML, IIT Jodhpur. Building intelligent interfaces at the intersection of systems-level frontend and applied ML."
-    />
+      content="Senior Frontend Architect with 16+ years. M.Tech AI/ML, IIT Jodhpur. Building intelligent interfaces at the intersection of systems-level frontend and applied ML." />
+    <meta property="og:image" content="https://satishjhanwer.dev/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta
-      property="og:image"
-      content="https://satishjhanwer.dev/og-image.png"
-    />
+      property="og:image:alt"
+      content="Satish Jhanwer - Senior Software Engineering Lead and Frontend Architect, 16+ years in software development" />
     <meta property="og:url" content="https://satishjhanwer.dev/" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://satishjhanwer.dev/og-image.png" />
+    <meta
+      name="twitter:image:alt"
+      content="Satish Jhanwer - Senior Software Engineering Lead and Frontend Architect, 16+ years in software development" />
 
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://avatars.githubusercontent.com https://media.licdn.com; connect-src 'self' https://cloudflareinsights.com; font-src 'self' data:;"
-    />
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://avatars.githubusercontent.com https://media.licdn.com; connect-src 'self' https://cloudflareinsights.com; font-src 'self' data:;" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -101,55 +79,45 @@
         "name": "Satish Jhanwer",
         "jobTitle": "Frontend Architect",
         "url": "https://satishjhanwer.dev",
-        "sameAs": [
-          "https://github.com/satishjhanwer",
-          "https://linkedin.com/in/satishjhanwer"
-        ]
+        "sameAs": ["https://github.com/satishjhanwer", "https://linkedin.com/in/satishjhanwer"]
       }
     </script>
-    <script type="module" crossorigin src="/assets/index-D7ZXiWGZ.js"></script>
+    <script type="module" crossorigin src="/assets/index-BcVm6eFS.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-WkwZ5CU-.js">
     <link rel="modulepreload" crossorigin href="/assets/motion-BcZiqqba.js">
     <link rel="modulepreload" crossorigin href="/assets/react-vendor-geY5YAxh.js">
-    <link rel="modulepreload" crossorigin href="/assets/data-DPkNktoV.js">
-    <link rel="modulepreload" crossorigin href="/assets/preload-helper-BLdHbfdN.js">
-    <link rel="modulepreload" crossorigin href="/assets/a11yPrefs-DMWiRXXE.js">
-    <link rel="modulepreload" crossorigin href="/assets/pwa-ds40iOpn.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-Bvmog_aJ.css">
+    <link rel="modulepreload" crossorigin href="/assets/experience-vYHS1mot.js">
+    <link rel="modulepreload" crossorigin href="/assets/content-C-sAFdPt.js">
+    <link rel="modulepreload" crossorigin href="/assets/a11yPrefs-DEbuoUT-.js">
+    <link rel="modulepreload" crossorigin href="/assets/useBodyClass-DO-uP4IE.js">
+    <link rel="modulepreload" crossorigin href="/assets/RichText-BzIxZBPE.js">
+    <link rel="modulepreload" crossorigin href="/assets/pwa-CUu80r-t.js">
+    <link rel="modulepreload" crossorigin href="/assets/webVitals-B_-iEVs6.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Pa_dojiv.css">
   </head>
 
   <body>
-    <svg
-      width="0"
-      height="0"
-      style="position: absolute"
-      aria-hidden="true"
-      focusable="false"
-    >
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true" focusable="false">
       <defs>
         <filter id="cv-protanopia">
           <feColorMatrix
             type="matrix"
-            values="0.152286 1.052583 -0.204868 0 0  0.114503 0.786281 0.099216 0 0  -0.003882 -0.048116 1.051998 0 0  0 0 0 1 0"
-          />
+            values="0.152286 1.052583 -0.204868 0 0  0.114503 0.786281 0.099216 0 0  -0.003882 -0.048116 1.051998 0 0  0 0 0 1 0" />
         </filter>
         <filter id="cv-deuteranopia">
           <feColorMatrix
             type="matrix"
-            values="0.367322 0.860646 -0.227968 0 0  0.280085 0.672501 0.047413 0 0  -0.011820 0.042940 0.968881 0 0  0 0 0 1 0"
-          />
+            values="0.367322 0.860646 -0.227968 0 0  0.280085 0.672501 0.047413 0 0  -0.011820 0.042940 0.968881 0 0  0 0 0 1 0" />
         </filter>
         <filter id="cv-tritanopia">
           <feColorMatrix
             type="matrix"
-            values="1.255528 -0.076749 -0.178779 0 0  -0.078411 0.930809 0.147602 0 0  0.004733 0.691367 0.303900 0 0  0 0 0 1 0"
-          />
+            values="1.255528 -0.076749 -0.178779 0 0  -0.078411 0.930809 0.147602 0 0  0.004733 0.691367 0.303900 0 0  0 0 0 1 0" />
         </filter>
         <filter id="cv-achromatopsia">
           <feColorMatrix
             type="matrix"
-            values="0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0 0 0 1 0"
-          />
+            values="0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0 0 0 1 0" />
         </filter>
       </defs>
     </svg>
