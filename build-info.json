@@ -1,0 +1,47 @@
+{
+  "builtAt": "2026-10-22",
+  "js": {
+    "initialKb": 138,
+    "initialFiles": 11,
+    "lazyKb": 319,
+    "lazyFiles": 38
+  },
+  "stack": [
+    {
+      "name": "react",
+      "version": "19.3.1"
+    },
+    {
+      "name": "framer-motion",
+      "version": "14.4.0"
+    },
+    {
+      "name": "lenis",
+      "version": "1.3.27"
+    },
+    {
+      "name": "web-vitals",
+      "version": "6.2.3"
+    },
+    {
+      "name": "axe-core",
+      "version": "4.14.0"
+    },
+    {
+      "name": "vite",
+      "version": "8.3.4"
+    },
+    {
+      "name": "typescript",
+      "version": "6.0.3"
+    },
+    {
+      "name": "vitest",
+      "version": "5.0.5"
+    },
+    {
+      "name": "@playwright/test",
+      "version": "1.64.1"
+    }
+  ]
+}

@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self'" />
+    <title>Page not found · Satish Jhanwer</title>
+    <script>
+      (function () {
+        var r = document.documentElement;
+        var themes = ["copper", "night", "sakura"];
+        var saved = null;
+        try {
+          saved = localStorage.getItem("theme");
+          var p = JSON.parse(localStorage.getItem("a11y-prefs") || "{}");
+          if (p.textSize === "115" || p.textSize === "130") r.setAttribute("data-text-size", p.textSize);
+          if (p.highContrast === true) r.setAttribute("data-contrast", "high");
+          if (p.underlineLinks === true) r.setAttribute("data-links", "underline");
+        } catch (e) {}
+        var h = new Date().getHours();
+        var t = themes.indexOf(saved) !== -1 ? saved : h < 8 ? "sakura" : h < 16 ? "copper" : "night";
+        r.setAttribute("data-theme", t);
+      })();
+    </script>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0c0500;
+        --text-page: #f5ede0;
+        --text-body: #c8b09c;
+        --text-muted: #c8a882;
+        --accent: #e8843a;
+        --cyan: #38bdf8;
+      }
+
+      :root[data-theme="night"] {
+        --bg: #06060f;
+        --text-page: #f0f0ff;
+        --text-body: #a0a0c8;
+        --text-muted: #8080b0;
+        --accent: #a855f7;
+        --cyan: #22d3ee;
+      }
+
+      :root[data-theme="sakura"] {
+        --bg: #0d0206;
+        --text-page: #fdf0f8;
+        --text-body: #d8b8cc;
+        --text-muted: #d0a8bc;
+        --accent: #ff8fab;
+        --cyan: #f9e4b7;
+      }
+
+      :root[data-contrast="high"] {
+        --bg: #000000;
+        --text-page: #ffffff;
+        --text-body: #f2f2f2;
+        --text-muted: #dcdcdc;
+      }
+
+      :root[data-text-size="115"] {
+        font-size: 115%;
+      }
+
+      :root[data-text-size="130"] {
+        font-size: 130%;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      body {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px 16px;
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        color: var(--text-body);
+        background: var(--bg);
+      }
+
+      main {
+        width: min(480px, 100%);
+        text-align: center;
+      }
+
+      .logo {
+        font-size: 1.75rem;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        color: var(--accent);
+      }
+
+      .logo span {
+        color: var(--cyan);
+      }
+
+      .code {
+        margin-top: 12px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        color: var(--text-muted);
+      }
+
+      h1 {
+        margin: 6px 0 10px;
+        font-size: clamp(1.75rem, 6vw, 2.4rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1.15;
+        color: var(--text-page);
+      }
+
+      code {
+        word-break: break-all;
+        color: var(--text-page);
+      }
+
+      .home {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        margin: 26px 0 18px;
+        padding: 12px 24px;
+        font-weight: 600;
+        color: var(--bg);
+        background: var(--accent);
+        border-radius: 10px;
+        text-decoration: none;
+      }
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px 18px;
+        padding: 0;
+        list-style: none;
+      }
+
+      ul a,
+      .note a {
+        color: var(--text-page);
+        text-decoration: underline;
+        text-decoration-color: rgba(255, 255, 255, 0.3);
+        text-underline-offset: 4px;
+      }
+
+      [data-links="underline"] a {
+        text-decoration-color: currentColor;
+      }
+
+      a:focus-visible {
+        outline: 2px solid var(--cyan);
+        outline-offset: 3px;
+      }
+
+      .note {
+        margin-top: 22px;
+        font-size: 0.875rem;
+        color: var(--text-muted);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="logo" aria-hidden="true">SJ<span>_</span></div>
+      <p class="code">404</p>
+      <h1 data-i18n="title">Page not found</h1>
+      <p><span data-i18n="body">There's nothing at this address:</span> <code id="path"></code></p>
+      <a class="home" href="/" data-i18n="home">Go to the home page</a>
+      <nav aria-label="Sections">
+        <ul>
+          <li><a href="/#projects" data-i18n="projects">projects</a></li>
+          <li><a href="/#experience" data-i18n="experience">experience</a></li>
+          <li><a href="/#contact" data-i18n="contact">contact</a></li>
+          <li><a href="/resume.pdf" download data-i18n="resume">download resume</a></li>
+        </ul>
+      </nav>
+      <p class="note">
+        <span data-i18n="note">Something broken? Tell me:</span>
+        <a href="mailto:satish.jhanwer@gmail.com">satish.jhanwer@gmail.com</a>
+      </p>
+    </main>
+    <script>
+      (function () {
+        var text = {
+          en: {
+            pageTitle: "Page not found · Satish Jhanwer",
+            title: "Page not found",
+            body: "There's nothing at this address:",
+            home: "Go to the home page",
+            nav: "Sections",
+            projects: "projects",
+            experience: "experience",
+            contact: "contact",
+            resume: "download resume",
+            note: "Something broken? Tell me:",
+          },
+          es: {
+            pageTitle: "Página no encontrada · Satish Jhanwer",
+            title: "Página no encontrada",
+            body: "No hay nada en esta dirección:",
+            home: "Ir a la página de inicio",
+            nav: "Secciones",
+            projects: "proyectos",
+            experience: "experiencia",
+            contact: "contacto",
+            resume: "descargar CV",
+            note: "¿Algo no funciona? Cuéntamelo:",
+          },
+          fr: {
+            pageTitle: "Page introuvable · Satish Jhanwer",
+            title: "Page introuvable",
+            body: "Il n'y a rien à cette adresse :",
+            home: "Aller à l'accueil",
+            nav: "Sections",
+            projects: "projets",
+            experience: "expérience",
+            contact: "contact",
+            resume: "télécharger le CV",
+            note: "Quelque chose ne marche pas ? Dites-le-moi :",
+          },
+          ja: {
+            pageTitle: "ページが見つかりません · Satish Jhanwer",
+            title: "ページが見つかりません",
+            body: "このアドレスには何もありません:",
+            home: "ホームページへ",
+            nav: "セクション",
+            projects: "プロジェクト",
+            experience: "職歴",
+            contact: "連絡先",
+            resume: "履歴書をダウンロード",
+            note: "不具合がありましたか?お知らせください:",
+          },
+        };
+        var lang = null;
+        try {
+          lang = localStorage.getItem("lang");
+        } catch (e) {}
+        if (!text[lang]) {
+          var tags = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language];
+          for (var i = 0; i < tags.length && !text[lang]; i++) {
+            lang = String(tags[i] || "").toLowerCase().split("-")[0];
+          }
+        }
+        if (!text[lang]) lang = "en";
+        var t = text[lang];
+        document.documentElement.lang = lang;
+        document.title = t.pageTitle;
+        document.querySelector("nav").setAttribute("aria-label", t.nav);
+        var nodes = document.querySelectorAll("[data-i18n]");
+        for (var j = 0; j < nodes.length; j++) {
+          nodes[j].textContent = t[nodes[j].getAttribute("data-i18n")];
+        }
+        var path = location.pathname;
+        try {
+          path = decodeURIComponent(path);
+        } catch (e) {}
+        document.getElementById("path").textContent = path;
+      })();
+    </script>
+  </body>
+</html>

@@ -4,8 +4,18 @@
     <meta charset="UTF-8" />
     <script>
       (function () {
+        var themes = ["copper", "night", "sakura"];
+        function chosen() {
+          var q = new URLSearchParams(location.search).get("theme");
+          if (themes.indexOf(q) !== -1) return q;
+          try {
+            var s = localStorage.getItem("theme");
+            if (themes.indexOf(s) !== -1) return s;
+          } catch (e) {}
+          return null;
+        }
         function applyTheme() {
-          var forced = new URLSearchParams(location.search).get("theme");
+          var forced = chosen();
           var h = new Date().getHours();
           var t = forced !== null ? forced : h < 8 ? "sakura" : h < 16 ? null : "night";
           if (t) document.documentElement.setAttribute("data-theme", t);
@@ -31,11 +41,11 @@
           var p = JSON.parse(localStorage.getItem("a11y-prefs") || "{}");
           var r = document.documentElement;
           if (p.textSize === "115" || p.textSize === "130") r.setAttribute("data-text-size", p.textSize);
-          if (p.highContrast) r.setAttribute("data-contrast", "high");
-          if (p.readableFont) r.setAttribute("data-font", "readable");
-          if (p.reduceMotion) r.setAttribute("data-motion", "reduce");
-          if (p.systemCursor) r.setAttribute("data-cursor", "system");
-          if (p.underlineLinks) r.setAttribute("data-links", "underline");
+          if (p.highContrast === true) r.setAttribute("data-contrast", "high");
+          if (p.readableFont === true) r.setAttribute("data-font", "readable");
+          if (p.reduceMotion === true) r.setAttribute("data-motion", "reduce");
+          if (p.systemCursor === true) r.setAttribute("data-cursor", "system");
+          if (p.underlineLinks === true) r.setAttribute("data-links", "underline");
           if (["protanopia", "deuteranopia", "tritanopia", "achromatopsia"].indexOf(p.colorVision) !== -1)
             r.setAttribute("data-vision", p.colorVision);
         } catch (e) {}
@@ -82,18 +92,18 @@
         "sameAs": ["https://github.com/satishjhanwer", "https://linkedin.com/in/satishjhanwer"]
       }
     </script>
-    <script type="module" crossorigin src="/assets/index-BcVm6eFS.js"></script>
+    <script type="module" crossorigin src="/assets/index-dRyglgAM.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-WkwZ5CU-.js">
     <link rel="modulepreload" crossorigin href="/assets/motion-BcZiqqba.js">
     <link rel="modulepreload" crossorigin href="/assets/react-vendor-geY5YAxh.js">
-    <link rel="modulepreload" crossorigin href="/assets/experience-vYHS1mot.js">
-    <link rel="modulepreload" crossorigin href="/assets/content-C-sAFdPt.js">
-    <link rel="modulepreload" crossorigin href="/assets/a11yPrefs-DEbuoUT-.js">
-    <link rel="modulepreload" crossorigin href="/assets/useBodyClass-DO-uP4IE.js">
+    <link rel="modulepreload" crossorigin href="/assets/experience-B_iq8chW.js">
+    <link rel="modulepreload" crossorigin href="/assets/content-Dr6RC5Jc.js">
+    <link rel="modulepreload" crossorigin href="/assets/a11yPrefs-FhRbmgJr.js">
+    <link rel="modulepreload" crossorigin href="/assets/useBodyClass-CL1wbxQb.js">
     <link rel="modulepreload" crossorigin href="/assets/RichText-BzIxZBPE.js">
     <link rel="modulepreload" crossorigin href="/assets/pwa-CUu80r-t.js">
-    <link rel="modulepreload" crossorigin href="/assets/webVitals-B_-iEVs6.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-Pa_dojiv.css">
+    <link rel="modulepreload" crossorigin href="/assets/webVitals-C8hUnRjo.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Dx5Kdhvl.css">
   </head>
 
   <body>

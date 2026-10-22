@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Jhanwer;Satish;;;
+FN:Satish Jhanwer
+TITLE:Senior Software Engineering Lead · Frontend Architect
+EMAIL;TYPE=INTERNET,WORK:satish.jhanwer@gmail.com
+URL:https://satishjhanwer.dev/
+ADR;TYPE=WORK:;;;Bangalore;;;India
+X-SOCIALPROFILE;TYPE=github:https://github.com/satishjhanwer
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/satishjhanwer/
+END:VCARD

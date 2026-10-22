@@ -1,6 +1,27 @@
-const CACHE = "satishjhanwer-v1792562537021";
+const CACHE = "satishjhanwer-v1792671879176";
 const OFFLINE_URL = "/offline.html";
 const MATCH = { ignoreVary: true };
+const RETRY_DELAY_MS = 300;
+
+async function fetchWithRetry(request) {
+  try {
+    return await fetch(request);
+  } catch {
+    await new Promise((r) => setTimeout(r, RETRY_DELAY_MS));
+    return fetch(request);
+  }
+}
+
+function store(e, request, res) {
+  if (!res.ok) return;
+  const copy = res.clone();
+  e.waitUntil(
+    caches
+      .open(CACHE)
+      .then((c) => c.put(request, copy))
+      .catch(() => undefined),
+  );
+}
 
 async function precache() {
   const cache = await caches.open(CACHE);
@@ -65,8 +86,7 @@ self.addEventListener("fetch", (e) => {
     e.respondWith(
       fetch(e.request)
         .then((res) => {
-          const resClone = res.clone();
-          caches.open(CACHE).then((c) => c.put(e.request, resClone));
+          store(e, e.request, res);
           return res;
         })
         .catch(async () => {
@@ -88,9 +108,8 @@ self.addEventListener("fetch", (e) => {
       caches.match(e.request, MATCH).then(
         (cached) =>
           cached ||
-          fetch(e.request).then((res) => {
-            const resClone = res.clone();
-            caches.open(CACHE).then((c) => c.put(e.request, resClone));
+          fetchWithRetry(e.request).then((res) => {
+            store(e, e.request, res);
             return res;
           }),
       ),
@@ -101,8 +120,7 @@ self.addEventListener("fetch", (e) => {
   e.respondWith(
     fetch(e.request)
       .then((res) => {
-        const resClone = res.clone();
-        caches.open(CACHE).then((c) => c.put(e.request, resClone));
+        store(e, e.request, res);
         return res;
       })
       .catch(() => caches.match(e.request, MATCH)),
