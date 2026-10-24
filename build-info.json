@@ -1,10 +1,10 @@
 {
-  "builtAt": "2026-10-22",
+  "builtAt": "2026-10-24",
   "js": {
-    "initialKb": 138,
-    "initialFiles": 11,
-    "lazyKb": 319,
-    "lazyFiles": 38
+    "initialKb": 140,
+    "initialFiles": 13,
+    "lazyKb": 325,
+    "lazyFiles": 39
   },
   "stack": [
     {
@@ -13,7 +13,7 @@
     },
     {
       "name": "framer-motion",
-      "version": "14.4.0"
+      "version": "14.6.0"
     },
     {
       "name": "lenis",
@@ -29,7 +29,7 @@
     },
     {
       "name": "vite",
-      "version": "8.3.4"
+      "version": "8.3.5"
     },
     {
       "name": "typescript",

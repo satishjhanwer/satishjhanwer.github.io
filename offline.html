@@ -110,6 +110,61 @@
         font-size: 14px;
         color: var(--text-muted);
       }
+      .back {
+        min-height: 1.6em;
+        margin-top: 8px;
+        font-size: 15px;
+        color: var(--text-page);
+      }
+
+      .back button {
+        min-height: 36px;
+        margin-left: 8px;
+        padding: 6px 14px;
+        font-size: 14px;
+      }
+
+      .game {
+        margin-top: 36px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .game h2 {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--text-page);
+      }
+
+      canvas {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 14px 0 12px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        touch-action: manipulation;
+      }
+
+      canvas:focus-visible {
+        outline: 2px solid var(--cyan);
+        outline-offset: 3px;
+      }
+
+      .game-bar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 12px 16px;
+      }
+
+      .game-bar p {
+        font-size: 14px;
+        color: var(--text-muted);
+        font-variant-numeric: tabular-nums;
+      }
     </style>
   </head>
   <body>
@@ -130,6 +185,174 @@
           >satish.jhanwer@gmail.com</a
         >
       </p>
+      <div class="back" id="back" role="status"></div>
+      <section class="game" id="game" aria-labelledby="game-title" hidden>
+        <h2 id="game-title">While you wait</h2>
+        <p class="note" id="game-help">Jump over the brackets with Space, ↑ or a tap.</p>
+        <canvas
+          id="runner"
+          width="460"
+          height="140"
+          tabindex="0"
+          role="img"
+          aria-label="A tiny runner game: the SJ logo jumps over code brackets"
+          aria-describedby="game-help"></canvas>
+        <div class="game-bar">
+          <button type="button" id="play">Play</button>
+          <p id="score">Best: 0</p>
+        </div>
+        <p class="note" id="game-status" role="status"></p>
+      </section>
     </main>
+    <script>
+      (function () {
+        var back = document.getElementById("back");
+        window.addEventListener("online", function () {
+          var reload = document.createElement("button");
+          reload.type = "button";
+          reload.textContent = "Reload";
+          reload.onclick = function () {
+            location.reload();
+          };
+          back.replaceChildren("You're back online.", reload);
+        });
+
+        var canvas = document.getElementById("runner");
+        var ctx = canvas.getContext && canvas.getContext("2d");
+        if (!ctx) return;
+        var section = document.getElementById("game");
+        var play = document.getElementById("play");
+        var scoreEl = document.getElementById("score");
+        var statusEl = document.getElementById("game-status");
+        var css = getComputedStyle(document.documentElement);
+        var color = function (name) {
+          return css.getPropertyValue(name).trim();
+        };
+        var KEY = "offline-best";
+        var W = 460, H = 140, GROUND = H - 22, SIZE = 26;
+        var best = 0;
+        try {
+          best = parseInt(localStorage.getItem(KEY), 10) || 0;
+        } catch (e) {}
+        var player, obstacles, speed, score, spawn, last, state = "idle";
+
+        var ratio = window.devicePixelRatio || 1;
+        canvas.width = W * ratio;
+        canvas.height = H * ratio;
+        ctx.scale(ratio, ratio);
+
+        function reset() {
+          player = { y: GROUND - SIZE, vy: 0 };
+          obstacles = [];
+          speed = 230;
+          score = 0;
+          spawn = 0.8;
+          last = 0;
+        }
+
+        function draw() {
+          ctx.clearRect(0, 0, W, H);
+          ctx.fillStyle = color("--text-muted");
+          ctx.fillRect(0, GROUND, W, 2);
+          ctx.textBaseline = "bottom";
+          ctx.font = "800 20px Inter, system-ui, sans-serif";
+          ctx.fillStyle = color("--accent");
+          ctx.fillText("SJ", 36, player.y + SIZE);
+          ctx.fillStyle = color("--cyan");
+          ctx.fillText("_", 36 + ctx.measureText("SJ").width, player.y + SIZE);
+          ctx.font = "700 18px ui-monospace, Consolas, monospace";
+          obstacles.forEach(function (o) {
+            ctx.fillText(o.label, o.x, GROUND);
+          });
+        }
+
+        function show() {
+          scoreEl.textContent = state === "playing" ? "Score: " + score + " · Best: " + best : "Best: " + best;
+        }
+
+        function end() {
+          state = "over";
+          if (score > best) {
+            best = score;
+            try {
+              localStorage.setItem(KEY, String(best));
+            } catch (e) {}
+          }
+          show();
+          statusEl.textContent = "Game over. You cleared " + score + ". Best: " + best + ".";
+          play.textContent = "Play again";
+          play.hidden = false;
+        }
+
+        function frame(t) {
+          if (state !== "playing") return;
+          var dt = last ? Math.min((t - last) / 1000, 0.05) : 0;
+          last = t;
+          player.vy += 1500 * dt;
+          player.y += player.vy * dt;
+          if (player.y >= GROUND - SIZE) {
+            player.y = GROUND - SIZE;
+            player.vy = 0;
+          }
+          speed += 8 * dt;
+          spawn -= dt;
+          if (spawn <= 0) {
+            obstacles.push({ x: W, w: 24, h: 20, label: Math.random() < 0.5 ? "{}" : "</>" });
+            spawn = 0.9 + Math.random();
+          }
+          for (var i = obstacles.length - 1; i >= 0; i--) {
+            var o = obstacles[i];
+            o.x -= speed * dt;
+            if (o.x + o.w < 0) {
+              obstacles.splice(i, 1);
+              score++;
+              show();
+            } else if (o.x < 36 + SIZE - 4 && o.x + o.w > 40 && player.y + SIZE > GROUND - o.h + 4) {
+              draw();
+              end();
+              return;
+            }
+          }
+          draw();
+          requestAnimationFrame(frame);
+        }
+
+        function start() {
+          reset();
+          state = "playing";
+          play.hidden = true;
+          statusEl.textContent = "";
+          show();
+          canvas.focus();
+          requestAnimationFrame(frame);
+        }
+
+        function jump() {
+          if (state !== "playing") start();
+          else if (player.y >= GROUND - SIZE) player.vy = -520;
+        }
+
+        play.addEventListener("click", start);
+        canvas.addEventListener("pointerdown", function (e) {
+          e.preventDefault();
+          jump();
+        });
+        document.addEventListener("keydown", function (e) {
+          var onPage = e.target === document.body || e.target === canvas;
+          if (onPage && (e.key === " " || e.key === "ArrowUp")) {
+            e.preventDefault();
+            jump();
+          }
+        });
+        document.addEventListener("visibilitychange", function () {
+          if (document.hidden && state === "playing") end();
+        });
+
+        reset();
+        draw();
+        show();
+        section.hidden = false;
+      })();
+    </script>
   </body>
 </html>

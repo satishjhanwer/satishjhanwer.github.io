@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-WkwZ5CU-.js";import{h as t}from"./motion-CzvtAT5t.js";var n=e(t(),1),r=`timeline`,i=new Set;function a(e){e!==r&&(r=e,i.forEach(e=>e()))}function o(e){return i.add(e),()=>{i.delete(e)}}function s(){return(0,n.useSyncExternalStore)(o,()=>r)}export{s as n,a as t};

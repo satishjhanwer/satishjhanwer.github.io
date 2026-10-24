@@ -1,4 +1,4 @@
-const CACHE = "satishjhanwer-v1792671879176";
+const CACHE = "satishjhanwer-v1792841457666";
 const OFFLINE_URL = "/offline.html";
 const MATCH = { ignoreVary: true };
 const RETRY_DELAY_MS = 300;
