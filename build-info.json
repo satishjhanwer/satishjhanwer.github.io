@@ -1,10 +1,10 @@
 {
   "builtAt": "2026-10-31",
   "js": {
-    "initialKb": 144,
-    "initialFiles": 14,
-    "lazyKb": 325,
-    "lazyFiles": 39
+    "initialKb": 146,
+    "initialFiles": 17,
+    "lazyKb": 332,
+    "lazyFiles": 41
   },
   "stack": [
     {

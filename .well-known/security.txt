@@ -1,0 +1,4 @@
+Contact: mailto:satish.jhanwer@gmail.com
+Expires: 2027-10-31T14:28:52Z
+Preferred-Languages: en, es, fr, ja
+Canonical: https://satishjhanwer.dev/.well-known/security.txt
