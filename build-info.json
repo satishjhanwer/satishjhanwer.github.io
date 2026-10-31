@@ -1,8 +1,8 @@
 {
-  "builtAt": "2026-10-30",
+  "builtAt": "2026-10-31",
   "js": {
-    "initialKb": 140,
-    "initialFiles": 13,
+    "initialKb": 144,
+    "initialFiles": 14,
     "lazyKb": 325,
     "lazyFiles": 39
   },
@@ -13,7 +13,7 @@
     },
     {
       "name": "framer-motion",
-      "version": "14.6.0"
+      "version": "14.9.0"
     },
     {
       "name": "lenis",

@@ -1,0 +1,1 @@
+var e={panel:`_panel_1ikik_1`,section:`_section_1ikik_8`,heading:`_heading_1ikik_19`,subheading:`_subheading_1ikik_26`,text:`_text_1ikik_35`,list:`_list_1ikik_41`,storage:`_storage_1ikik_52`,action:`_action_1ikik_76`,status:`_status_1ikik_104`,reviewed:`_reviewed_1ikik_111`};export{e as t};

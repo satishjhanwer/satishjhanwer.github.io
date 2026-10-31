@@ -15,7 +15,7 @@
         --text-muted: #c8a882;
         --accent: #e8843a;
         --accent-dim: #d4692a;
-        --cyan: #38bdf8;
+        --secondary: #38bdf8;
       }
 
       * {
@@ -50,7 +50,7 @@
       }
 
       .logo span {
-        color: var(--cyan);
+        color: var(--secondary);
       }
 
       h1 {
@@ -102,7 +102,7 @@
 
       button:focus-visible,
       a:focus-visible {
-        outline: 2px solid var(--cyan);
+        outline: 2px solid var(--secondary);
         outline-offset: 3px;
       }
 
@@ -148,7 +148,7 @@
       }
 
       canvas:focus-visible {
-        outline: 2px solid var(--cyan);
+        outline: 2px solid var(--secondary);
         outline-offset: 3px;
       }
 
@@ -181,7 +181,7 @@
       </div>
       <p class="note">
         Want to get in touch? Email
-        <a href="mailto:satish.jhanwer@gmail.com" style="color: var(--cyan)"
+        <a href="mailto:satish.jhanwer@gmail.com" style="color: var(--secondary)"
           >satish.jhanwer@gmail.com</a
         >
       </p>
@@ -258,7 +258,7 @@
           ctx.font = "800 20px Inter, system-ui, sans-serif";
           ctx.fillStyle = color("--accent");
           ctx.fillText("SJ", 36, player.y + SIZE);
-          ctx.fillStyle = color("--cyan");
+          ctx.fillStyle = color("--secondary");
           ctx.fillText("_", 36 + ctx.measureText("SJ").width, player.y + SIZE);
           ctx.font = "700 18px ui-monospace, Consolas, monospace";
           obstacles.forEach(function (o) {
