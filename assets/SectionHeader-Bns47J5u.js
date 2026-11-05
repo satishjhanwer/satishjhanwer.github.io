@@ -1,0 +1,1 @@
+import{m as e}from"./motion-qa66RBhu.js";import{pt as t}from"./content-DUt5tqBY.js";var n=e();function r({id:e,visuallyHidden:r}){return(0,n.jsxs)(`div`,{className:r?`sec-hdr sr-only`:`sec-hdr`,children:[(0,n.jsx)(`h2`,{className:`sec-title`,children:t(e).title}),(0,n.jsx)(`div`,{className:`sec-line`})]})}export{r as t};
