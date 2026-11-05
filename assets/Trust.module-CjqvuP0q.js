@@ -1,0 +1,1 @@
+var e={panel:`_panel_babgq_1`,section:`_section_babgq_8`,heading:`_heading_babgq_19`,subheading:`_subheading_babgq_26`,text:`_text_babgq_35`,list:`_list_babgq_41`,storage:`_storage_babgq_52`,action:`_action_babgq_76`,status:`_status_babgq_104`,reviewed:`_reviewed_babgq_111`};export{e as t};

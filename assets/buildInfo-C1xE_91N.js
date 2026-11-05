@@ -1,0 +1,1 @@
+function e(){return fetch(`/build-info.json`).then(e=>e.ok?e.json():Promise.reject(Error(String(e.status))))}export{e as t};

@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-WkwZ5CU-.js";import{h as t}from"./motion-CPjsCYzC.js";var n=e(t(),1);function r(e,t){(0,n.useEffect)(()=>{if(t)return document.body.classList.add(e),()=>document.body.classList.remove(e)},[e,t])}export{r as t};

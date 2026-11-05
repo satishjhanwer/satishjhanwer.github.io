@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-WkwZ5CU-.js";import{h as t,t as n}from"./motion-qa66RBhu.js";var r=e(t(),1);function i(e=`-100px`,t=!0){let i=(0,r.useRef)(null);return{ref:i,inView:n(i,{once:t,margin:e})}}export{i as t};
